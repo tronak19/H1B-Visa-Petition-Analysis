@@ -3,7 +3,7 @@ import pandas as pd
 import sklearn as sk
 import pickle
 
-with open("groupby.pkl", "rb") as f:
+with open("grouped_data.pkl", "rb") as f:
 	grouped_data = pickle.load(f)
 grouped_data
-print(list(grouped_data))
+print(len(list(grouped_data)))

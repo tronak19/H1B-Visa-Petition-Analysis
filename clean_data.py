@@ -22,12 +22,16 @@ print("soc_not_null shape = ", soc_not_null.shape)
 
 count=0
 for index1, row1 in soc_null.iterrows():
+	flag=0
 	for index2, row2 in soc_not_null.iterrows():
-		 if row1['JOB_TITLE'] == row2['JOB_TITLE']:
+		if row1['JOB_TITLE'] == row2['JOB_TITLE']:
 				soc_null.set_value(index1,'SOC_NAME',row2['SOC_NAME'])
 				print(row2['SOC_NAME'])
 				count+=1
 				print("count = ", count)
+				flag=1
 				break
+	if flag==0:
+		soc_null.set_value(index1,'SOC_NAME',"UNDEFINED")
 
 soc_null.to_pickle('soc_null_df.pkl')
