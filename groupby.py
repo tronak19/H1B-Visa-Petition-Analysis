@@ -26,7 +26,7 @@ unique_soc_name_list = df['SOC_NAME'].unique()
 mapping_dict={}
 for i in range(len(unique_soc_name_list)):
     temp_df = df.loc[df['SOC_NAME'] == unique_soc_name_list[i]]
-    temp_list = temp_df['JOB_TITLE'].unique()
+    temp_list = temp_df['JOB_TITLE'].unique().tolist()
     mapping_dict[unique_soc_name_list[i]] = temp_list
 with open("mapping_dict.pkl", "wb") as f:
 	pickle.dump(mapping_dict, f)
